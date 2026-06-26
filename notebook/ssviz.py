@@ -95,7 +95,10 @@ def _dark_panel(ax):
     for sp in ax.spines.values(): sp.set_color(MUTE)
     ax.tick_params(colors=INK, labelsize=9); ax.grid(True, color=GRID); ax.set_axisbelow(True)
 
+ANIM_DPI = 70   # render animation frames a touch coarser to keep the embedded notebook light
+
 def _embed(anim, fig):
+    fig.set_dpi(ANIM_DPI)
     html = HTML(anim.to_jshtml(default_mode="loop")); plt.close(fig); return html
 
 # --------------------------------------------------------------------------- #
@@ -273,7 +276,7 @@ def show_representation_servo(n0, nT, finals):
                  color=INKL, fontweight="bold")
     ax.legend(fontsize=9, loc="upper center", ncol=2); plt.tight_layout(); plt.show()
 
-def animate_feature_spaces(rod, runs, target_grasp, n_frames=28):
+def animate_feature_spaces(rod, runs, target_grasp, n_frames=22):
     """Animate the controller run under several feature representations at once.
 
     Top row: the rod reshaping toward the (rotated) target under each representation. Bottom row:
@@ -297,7 +300,7 @@ def animate_feature_spaces(rod, runs, target_grasp, n_frames=28):
                           geom=geom, act=act, ferr=ferr, L=L)
     gmax = max(d["geom"].max() for d in data.values()); amax = max(d["act"].max() for d in data.values())
     Lmax = max(d["L"] for d in data.values()); names = list(data)
-    fig = plt.figure(figsize=(14, 7.2)); fig.patch.set_facecolor(BG)
+    fig = plt.figure(figsize=(12.8, 6.6)); fig.patch.set_facecolor(BG)
     gs = GridSpec(2, 3, height_ratios=[1.3, 1.0], hspace=0.36, wspace=0.32, figure=fig)
     axst = [fig.add_subplot(gs[0,j]) for j in range(3)]
     axf, axe, axa = fig.add_subplot(gs[1,0]), fig.add_subplot(gs[1,1]), fig.add_subplot(gs[1,2])
@@ -337,11 +340,11 @@ def animate_probe(rod, r0):
     probe = np.array([0.55,0.55,0.33,0.55,0.55,0.33]); seqs = []
     for j in range(6):
         fr = []
-        for t in np.sin(np.linspace(0, np.pi, 10)):
+        for t in np.sin(np.linspace(0, np.pi, 7)):
             r = r0.copy(); r[j] += t*probe[j]; lp, rp = split_grasp(r); n = rod.solve(lp, rp, warm_start=True)
             fr.append((n, lp, rp, rod.sample_points(n)))
         seqs.append(fr)
-    frames = [(j,k) for j in range(6) for k in range(10)]
+    frames = [(j,k) for j in range(6) for k in range(7)]
     Jref = rod.true_jacobian(*split_grasp(r0)); vmax = float(np.abs(Jref).max())
     fig, (axS, axJ) = plt.subplots(1, 2, figsize=(11.5,4.6), gridspec_kw={"width_ratios":[1.5,1]}); fig.patch.set_facecolor(BG)
     def _f(idx):
@@ -391,7 +394,7 @@ def preview_goal(rod, initial_grasp, target_grasp, n_steps=30):
     return _embed(animation.FuncAnimation(fig, _f, frames=len(ts), interval=90), fig)
 
 def animate_reshape(rod, R_hist, node_hist, errs, *, target_grasp=None, desired_pts=None,
-                    overlay=None, floor=None, title="reshaping the rod", n_frames=36):
+                    overlay=None, floor=None, title="reshaping the rod", n_frames=30):
     """Animate a control run: the arms reshaping the rod (left) and the error (right).
 
     target_grasp : (lp, rp) of a reachable target -> drawn as a green ghost.
