@@ -1,0 +1,28 @@
+# --- local / editor / environment ---
+.claude/
+.ipynb_checkpoints/
+__pycache__/
+*.pyc
+.venv/
+.DS_Store
+Thumbs.db
+
+# --- backups and scratch, not for the public repo ---
+notebook - copia/
+inspiration_for_animations/
+
+# --- unpublished conference-paper draft ---
+# (kept out of the public repo for now; delete these two lines to include it)
+paper/
+/main.tex
+
+# --- LaTeX build artifacts ---
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+*.bbl
+*.blg
