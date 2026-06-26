@@ -1,0 +1,46 @@
+name: Deploy JupyterLite to GitHub Pages
+
+# Builds a JupyterLite site (Jupyter running entirely in the browser via Pyodide)
+# from the notebook/ folder and publishes it to GitHub Pages. After the first run,
+# enable Pages once:  repo Settings -> Pages -> Source: "GitHub Actions".
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# allow only one concurrent deployment
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install JupyterLite
+        run: pip install jupyterlite-core==0.4.* jupyterlite-pyodide-kernel==0.4.* jupyterlab~=4.2
+      - name: Build the JupyterLite site from notebook/
+        run: jupyter lite build --contents notebook --output-dir dist
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

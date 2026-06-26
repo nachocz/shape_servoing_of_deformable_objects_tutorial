@@ -7,17 +7,20 @@ with a figure, a block diagram, or an animation at every stage.
 
 ## ▶ Open the tutorial online (no install)
 
-[![Open in nbviewer](https://img.shields.io/badge/read-nbviewer-orange.svg)](https://nbviewer.org/github/nachocz/shape_servoing_of_deformable_objects_tutorial/blob/main/notebook/shape_servoing_tutorial.ipynb)
+[![Run in browser (JupyterLite)](https://jupyterlite.rtfd.io/en/latest/_static/badge.svg)](https://nachocz.github.io/shape_servoing_of_deformable_objects_tutorial/lab/index.html?path=shape_servoing_tutorial.ipynb)
 [![Launch Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/nachocz/shape_servoing_of_deformable_objects_tutorial/main?labpath=notebook/shape_servoing_tutorial.ipynb)
+[![Open in nbviewer](https://img.shields.io/badge/read-nbviewer-orange.svg)](https://nbviewer.org/github/nachocz/shape_servoing_of_deformable_objects_tutorial/blob/main/notebook/shape_servoing_tutorial.ipynb)
 
-- **Just read it (instant):** open the notebook in
-  [**nbviewer**](https://nbviewer.org/github/nachocz/shape_servoing_of_deformable_objects_tutorial/blob/main/notebook/shape_servoing_tutorial.ipynb).
-  It ships with its outputs embedded, so all figures and the animations play in any browser, with
-  nothing to install.
-- **Run and edit it (interactive):** click
-  [**Launch Binder**](https://mybinder.org/v2/gh/nachocz/shape_servoing_of_deformable_objects_tutorial/main?labpath=notebook/shape_servoing_tutorial.ipynb).
-  After a short one-time build it opens a live JupyterLab in your browser, where you can change the
-  target shape, the gain, or the feature representation in the cells marked **try it** and re-run.
+- **Run it in your browser, no server, no install — [JupyterLite](https://nachocz.github.io/shape_servoing_of_deformable_objects_tutorial/lab/index.html?path=shape_servoing_tutorial.ipynb).**
+  Python runs entirely client-side via WebAssembly (Pyodide). The notebook opens with all figures and
+  animations already rendered, so you can read it immediately, and you can edit the cells marked **try
+  it** (target shape, gain, feature representation) and re-run them. The animation-heavy cells run
+  slowly under WebAssembly, so for re-running those at full speed use Binder below.
+- **Run at full speed in the cloud — [Binder](https://mybinder.org/v2/gh/nachocz/shape_servoing_of_deformable_objects_tutorial/main?labpath=notebook/shape_servoing_tutorial.ipynb).**
+  A short one-time build, then a live JupyterLab with a real CPython kernel.
+- **Just read it — [nbviewer](https://nbviewer.org/github/nachocz/shape_servoing_of_deformable_objects_tutorial/blob/main/notebook/shape_servoing_tutorial.ipynb).**
+  Static render with the animations playing (nbviewer.org is occasionally overloaded; if it shows a
+  503, try again later or use the JupyterLite link above).
 
 ## What the tutorial covers
 
