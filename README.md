@@ -7,21 +7,21 @@ with a figure, a block diagram, or an animation at every stage.
 
 ## ▶ Open the tutorial online (no install)
 
-### → [**Read the tutorial (clean web page)**](https://nachocz.github.io/shape_servoing_of_deformable_objects_tutorial/)
+### → [**Open the tutorial**](https://nachocz.github.io/shape_servoing_of_deformable_objects_tutorial/)
 
-A single, self-contained page with all the prose, math, figures, and animations rendered. Nothing to
-install, opens instantly in any browser. **This is the link to share.**
+A clean, book-style web page with all the prose, math, figures, and animations — and the code runs
+**live in your browser** (Python via Pyodide / WebAssembly, no server, nothing to install).
+**This is the link to share.**
 
-To also *run and edit* the code (change the target shape, the gain, or the feature representation in
-the cells marked **try it**):
-
-[![Launch Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/nachocz/shape_servoing_of_deformable_objects_tutorial/main?labpath=notebook/shape_servoing_tutorial.ipynb)
-
+- **Read it:** opens instantly, everything is already rendered.
+- **Run it live:** hover a code cell and press the run button. First, run the top **setup** cell once
+  (it loads NumPy/SciPy/Matplotlib and the helper modules in the browser); then edit the cells marked
+  **try it** — the target shape, the gain, the feature representation — and re-run. The
+  animation-heavy cells are slow under WebAssembly, so use Binder below for re-running those.
 - **Full speed, in the cloud — [Binder](https://mybinder.org/v2/gh/nachocz/shape_servoing_of_deformable_objects_tutorial/main?labpath=notebook/shape_servoing_tutorial.ipynb).**
   A short one-time build, then a live JupyterLab with a real CPython kernel.
-- **In your browser, no server — [JupyterLite](https://nachocz.github.io/shape_servoing_of_deformable_objects_tutorial/lite/lab/index.html?path=shape_servoing_tutorial.ipynb)** (Pyodide / WebAssembly).
-  Runs entirely client-side; click **Trust** (or run the cells) to enable the animations. The
-  animation-heavy cells run slowly under WebAssembly, so Binder is better for re-running those.
+
+[![Launch Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/nachocz/shape_servoing_of_deformable_objects_tutorial/main?labpath=notebook/shape_servoing_tutorial.ipynb)
 
 ## What the tutorial covers
 

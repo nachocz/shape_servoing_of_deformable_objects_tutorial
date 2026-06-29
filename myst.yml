@@ -1,0 +1,19 @@
+version: 1
+project:
+  title: Shape Servoing of Deformable Objects
+  description: >-
+    A data-driven, mechanically model-free introduction to shape control of
+    deformable objects, built around a planar elastic rod held by two robot arms.
+  authors:
+    - name: Ignacio Cuiral-Zueco
+  github: https://github.com/nachocz/shape_servoing_of_deformable_objects_tutorial
+  # Run the code in the reader's browser (Pyodide / WebAssembly), RCFS-style.
+  jupyter:
+    lite: true
+  toc:
+    - file: notebook/shape_servoing_tutorial.ipynb
+site:
+  template: book-theme
+  options:
+    hide_outline: false
+    hide_toc: false

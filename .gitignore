@@ -1,3 +1,7 @@
+# --- MyST / Jupyter Book build output ---
+_build/
+node_modules/
+
 # --- JupyterLite build output ---
 dist/
 _output/
