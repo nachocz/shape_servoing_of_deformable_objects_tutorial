@@ -36,8 +36,12 @@ jobs:
         env:
           BASE_URL: /shape_servoing_of_deformable_objects_tutorial
         run: python -m jupyter_book build --html
-      - name: Serve helper modules for the in-browser kernel
-        run: cp notebook/dlo.py notebook/ssviz.py _build/html/
+      - name: Prepare site for GitHub Pages
+        run: |
+          touch _build/html/.nojekyll          # serve _-prefixed folders (build/_assets) as-is
+          cp notebook/dlo.py notebook/ssviz.py _build/html/   # for the in-browser kernel
+          echo "---- _build/html ----"; ls -la _build/html
+          echo "---- _build/html/build ----"; ls -la _build/html/build | head -20
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _build/html
